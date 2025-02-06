@@ -1,0 +1,21 @@
+.title {
+    display: flex;
+    font-size: 30px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    gap: 5px;
+
+    label {
+        font-weight: 200;
+    }
+
+    input {
+        width: 80%;
+        font-weight: 200;
+    }
+}

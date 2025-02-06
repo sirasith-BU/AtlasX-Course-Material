@@ -1,0 +1,42 @@
+.map-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh; /* เต็มหน้าจอ */
+}
+
+.map-panel {
+  flex: 2; /* ให้แผนที่ใช้พื้นที่ 2 ส่วนจาก 3 */
+  height: 100%;
+}
+
+.table-container {
+  flex: 1; /* ให้ตารางใช้พื้นที่ 1 ส่วนจาก 3 */
+  overflow-y: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+thead th {
+  background-color: #ff8474;
+  // color: white;
+  padding: 0.5rem;
+  border: 1px solid black;
+  text-align: center;
+}
+
+tbody td {
+  padding: 0.5rem;
+  border: 1px solid black;
+}
+
+.highlight {
+  background-color: #fca480; /* สีพื้นหลังของแถวที่ถูกเลือก */
+}
+
+tbody tr:hover {
+  background-color: #ffe5d4; /* สีพื้นหลังเมื่อเมาส์ชี้ */
+}

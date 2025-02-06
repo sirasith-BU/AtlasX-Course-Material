@@ -1,0 +1,68 @@
+:host {
+  .main {
+    display: flex;
+  }
+
+  .map-panel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  locator-form {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20%;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    border-radius: 8px;
+  }
+
+  query-task {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 30%;
+    height: calc(100vh - 20px); /* ปรับความสูงให้พอดีกับหน้าจอ ลบระยะห่างด้านบน/ล่าง */
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    border-radius: 8px;
+    overflow-y: auto; /* เพิ่ม scroll bar */
+    overflow-x: hidden; /* ซ่อน scroll แนวนอน */
+  }
+
+  closet-facility {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: auto;
+    height: calc(100vh - 20px); /* ปรับความสูงให้พอดีกับหน้าจอ ลบระยะห่างด้านบน/ล่าง */
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    border-radius: 8px;
+    overflow-y: auto; /* เพิ่ม scroll bar */
+    overflow-x: hidden; /* ซ่อน scroll แนวนอน */
+  }
+
+  route-stops {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: auto;
+    height: calc(100vh - 20px); /* ปรับความสูงให้พอดีกับหน้าจอ ลบระยะห่างด้านบน/ล่าง */
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    border-radius: 8px;
+    overflow-y: auto; /* เพิ่ม scroll bar */
+    overflow-x: hidden; /* ซ่อน scroll แนวนอน */
+  }
+}

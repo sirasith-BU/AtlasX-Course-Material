@@ -1,0 +1,19 @@
+<div class="map-container">
+  <div #mapPanel class="map-panel"></div>
+  <div class="container">
+    <div class="button-sections">
+      <p-button label="Start Route" severity="info" (onClick)="startRoute()" [disabled]="!Stops" />
+      <p-button label="Clear All" severity="danger" (onClick)="clearAll()" />
+    </div>
+    <div class="table">
+      <div
+        class="table-row"
+        *ngFor="let direction of directionsPaths; let i = index"
+        [ngClass]="{ selected: selectedDirection === i }"
+        (click)="selectDirection(i)"
+      >
+        {{ i + 1 }}. {{ direction }}
+      </div>
+    </div>
+  </div>
+</div>

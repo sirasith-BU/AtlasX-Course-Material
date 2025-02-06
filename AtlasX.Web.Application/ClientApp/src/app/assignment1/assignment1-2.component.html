@@ -1,0 +1,143 @@
+<style>
+  .container {
+    background: #fff;
+    padding: 20px;
+  }
+
+  section {
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    padding: 10px;
+    margin: 0 -20px;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    background-color: lightblue;
+    color: blue;
+    padding: 10px;
+    margin: 0 -20px;
+    margin-bottom: 10px;
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+
+  table th,
+  table td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+  }
+
+  table th {
+    background-color: white;
+  }
+
+  table td {
+    text-align: start;
+  }
+
+  a {
+    color: blue;
+    text-decoration: none;
+  }
+
+  form input {
+    margin: 10px;
+  }
+
+  .light-blue {
+    color: lightblue;
+  }
+
+  button {
+    background-color: lightgray;
+  }
+</style>
+<div class="container">
+  <header>
+    <h1>Dog D. Dog</h1>
+  </header>
+
+  <section class="about">
+    <h2>About</h2>
+    <p>Woof woof!<br />Hi, I'm Dog. I love <a>User Interface Design</a>.</p>
+  </section>
+  <img
+    src="https://lh4.googleusercontent.com/proxy/7pP4irrwCdEQyd--G4770VKM3GodPASWBdS1QzdUJd9SGX0Qpsd_wJWPeQ0ghHjyK5NZcBBvJOcr8ZhGAledPkp9hsA3KtJBORWNjw"
+    style="position: absolute; z-index: 10; top: 98px; right: 0px; height: 380px;"
+  />
+
+  <section class="courses">
+    <h2>Courses</h2>
+    <p>Here are some courses I've taken:</p>
+    <table>
+      <thead>
+        <tr>
+          <th style="font-weight: bold">Course Number</th>
+          <th style="font-weight: bold">Course Title</th>
+          <th style="font-weight: bold">Semester Taken</th>
+        </tr>
+        <tr>
+          <td colspan="3" style="text-align: center; font-weight: bold">For Credit</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="font-weight: bold"><a>6.813</a></td>
+          <td class="light-blue">User Interface Design</td>
+          <td class="light-blue">Spring 2014</td>
+        </tr>
+        <tr>
+          <td style="font-weight: bold"><a>6.034</a></td>
+          <td>Artificial Intelligence</td>
+          <td>Fall 2013</td>
+        </tr>
+        <tr>
+          <td style="font-weight: bold"><a>6.006</a></td>
+          <td>Introduction to Algorithms</td>
+          <td>Fall 2013</td>
+        </tr>
+        <tr>
+          <td colspan="3" style="text-align: center; font-weight: bold">Listener</td>
+        </tr>
+        <tr>
+          <td class="light-blue" style="font-weight: bold">6.867</td>
+          <td>Machine Learning</td>
+          <td>Fall 2013</td>
+        </tr>
+        <tr>
+          <td class="light-blue" style="font-weight: bold">6.830</td>
+          <td>Database Systems</td>
+          <td>Fall 2012</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="interests">
+    <h2>Interests</h2>
+    <p>I am interested in <strong>HCI</strong>, memes, and YouTube videos.</p>
+  </section>
+
+  <section class="form">
+    <h2>Submit Pet Information</h2>
+    <p>Would love to know what kinds of pets you 'own' (you'll never own me). Submit below!</p>
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" /><br />
+
+      <label for="phylum">Phylum:</label>
+      <input type="text" /><br />
+
+      <label for="gender">Gender:</label>
+      <input type="text" /><br />
+
+      <button type="button">Submit</button>
+    </form>
+  </section>
+</div>

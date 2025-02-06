@@ -1,0 +1,12 @@
+<label class="title">{{ formTitle }}</label>
+<!-- <label>Integer Only</label>
+<p-inputnumber inputId="integeronly" [(ngModel)]="long" />
+<label>Integer Only</label>
+<p-inputnumber inputId="integeronly" [(ngModel)]="lat" /> -->
+<div class="form">
+  <label>Latitude:</label>
+  <input [(ngModel)]="lat" type="number" placeholder="Latitude" />
+  <label>Longitude:</label>
+  <input [(ngModel)]="long" type="number" placeholder="Longitude" />
+</div>
+<p-button label="Locate" severity="info" (click)="Goto()" />

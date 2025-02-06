@@ -1,0 +1,14 @@
+<div class="map-container">
+  <div #mapPanel class="map-panel"></div>
+  <div class="table">
+    <h1>CLOSET-FACILITIES</h1>
+    <div
+      class="table-row"
+      *ngFor="let city of cities; let i = index"
+      [ngClass]="{ selected: selectedCity === i }"
+      (click)="selectCity(i)"
+    >
+      {{ city }}
+    </div>
+  </div>
+</div>

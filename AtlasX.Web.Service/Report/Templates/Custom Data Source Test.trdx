@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report Width="17cm" Culture="en-US" Name="Custom Data Source Test" xmlns="http://schemas.telerik.com/reporting/2020/2.0">
+  <Style>
+    <Font Name="TH Sarabun New" />
+  </Style>
+  <DataSources>
+    <ObjectDataSource DataMember="JsonStringToDataTable" Name="objectDataSource1" ParameterValues="{&quot;jsonString&quot;:&quot;[{\&quot;ID\&quot;:1,\&quot;NAME\&quot;:\&quot;AtlasX\&quot;},{\&quot;ID\&quot;:2,\&quot;NAME\&quot;:\&quot;Framework\&quot;}]&quot;}">
+      <DataSource>
+        <String>AtlasX.TelerikReporting.DataTransform, AtlasX.TelerikReporting, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</String>
+      </DataSource>
+      <Parameters>
+        <ObjectDataSourceParameter Name="jsonString">
+          <DataType>System.String</DataType>
+          <Value>
+            <String>= Parameters.DataSet.Value</String>
+          </Value>
+        </ObjectDataSourceParameter>
+      </Parameters>
+    </ObjectDataSource>
+    <WebServiceDataSource ServiceUrl="https://jsonplaceholder.typicode.com/users" Name="webServiceDataSource1" />
+  </DataSources>
+  <Items>
+    <PageHeaderSection Height="2.5cm" Name="pageHeaderSection1">
+      <Items>
+        <TextBox Width="17cm" Height="2.5cm" Left="0cm" Top="0cm" Value="Custom Data Source Example" Name="textBox3">
+          <Style TextAlign="Center" VerticalAlign="Middle">
+            <Font Name="TH Sarabun New" Size="24pt" Bold="True" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageHeaderSection>
+    <DetailSection Height="3cm" Name="detailSection1">
+      <Items>
+        <Table DataSourceName="objectDataSource1" Width="17cm" Height="1cm" Left="0cm" Top="0cm" Name="table1" StyleName="Office.TableNormal">
+          <Body>
+            <Cells>
+              <TableCell RowIndex="0" ColumnIndex="0" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="3.306cm" Height="0.5cm" Left="0cm" Top="0cm" Value="= Fields.ID" Name="textBox6" StyleName="Office.TableBody">
+                    <Style>
+                      <Font Name="TH Sarabun New" Size="14pt" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="1" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="13.694cm" Height="0.5cm" Left="0cm" Top="0cm" Value="= Fields.NAME" Name="textBox7" StyleName="Office.TableBody">
+                    <Style>
+                      <Font Name="TH Sarabun New" Size="14pt" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+            </Cells>
+            <Columns>
+              <Column Width="3.306cm" />
+              <Column Width="13.694cm" />
+            </Columns>
+            <Rows>
+              <Row Height="0.5cm" />
+            </Rows>
+          </Body>
+          <Corner />
+          <Style>
+            <Font Name="TH Sarabun New" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+          <RowGroups>
+            <TableGroup Name="detail">
+              <Groupings>
+                <Grouping />
+              </Groupings>
+            </TableGroup>
+          </RowGroups>
+          <ColumnGroups>
+            <TableGroup Name="iD">
+              <ReportItem>
+                <TextBox Width="3.306cm" Height="0.5cm" Left="0cm" Top="0cm" Value="Id" Name="textBox1" StyleName="Office.TableHeader">
+                  <Style>
+                    <Font Name="TH Sarabun New" Size="14pt" Bold="True" />
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+            <TableGroup Name="nAME">
+              <ReportItem>
+                <TextBox Width="13.694cm" Height="0.5cm" Left="0cm" Top="0cm" Value="Name" Name="textBox2" StyleName="Office.TableHeader">
+                  <Style>
+                    <Font Name="TH Sarabun New" Size="14pt" Bold="True" />
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+          </ColumnGroups>
+        </Table>
+        <Table DataSourceName="webServiceDataSource1" Width="16.994cm" Height="1cm" Left="0cm" Top="2cm" Name="table2" StyleName="Normal.TableNormal">
+          <Body>
+            <Cells>
+              <TableCell RowIndex="0" ColumnIndex="0" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="5.667cm" Height="0.5cm" Left="0cm" Top="0cm" Value="= Fields.name" Name="textBox9" StyleName="Normal.TableBody">
+                    <Style>
+                      <Font Name="TH Sarabun New" Size="14pt" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="1" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="5.667cm" Height="0.5cm" Left="0cm" Top="0cm" Value="= Fields.email" Name="textBox10" StyleName="Normal.TableBody">
+                    <Style>
+                      <Font Name="TH Sarabun New" Size="14pt" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="2" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="5.66cm" Height="0.5cm" Left="0cm" Top="0cm" Value="= Fields.website" Name="textBox11" StyleName="Normal.TableBody">
+                    <Style>
+                      <Font Name="TH Sarabun New" Size="14pt" />
+                    </Style>
+                  </TextBox>
+                </ReportItem>
+              </TableCell>
+            </Cells>
+            <Columns>
+              <Column Width="5.667cm" />
+              <Column Width="5.667cm" />
+              <Column Width="5.66cm" />
+            </Columns>
+            <Rows>
+              <Row Height="0.5cm" />
+            </Rows>
+          </Body>
+          <Corner />
+          <Style>
+            <Font Name="TH Sarabun New" />
+            <BorderStyle Top="None" Bottom="None" Left="None" Right="None" />
+            <BorderColor Top="Black" Bottom="Black" Left="Black" Right="Black" />
+            <BorderWidth Top="1pt" Bottom="1pt" Left="1pt" Right="1pt" />
+          </Style>
+          <RowGroups>
+            <TableGroup Name="detail">
+              <Groupings>
+                <Grouping />
+              </Groupings>
+            </TableGroup>
+          </RowGroups>
+          <ColumnGroups>
+            <TableGroup Name="name">
+              <ReportItem>
+                <TextBox Width="5.667cm" Height="0.5cm" Left="0cm" Top="0cm" Value="Name" Name="textBox4" StyleName="Normal.TableHeader">
+                  <Style BackgroundColor="196, 189, 150">
+                    <Font Name="TH Sarabun New" Size="14pt" Bold="True" />
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+            <TableGroup Name="email">
+              <ReportItem>
+                <TextBox Width="5.667cm" Height="0.5cm" Left="0cm" Top="0cm" Value="Email" Name="textBox5" StyleName="Normal.TableHeader">
+                  <Style BackgroundColor="196, 189, 150">
+                    <Font Name="TH Sarabun New" Size="14pt" Bold="True" />
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+            <TableGroup Name="website">
+              <ReportItem>
+                <TextBox Width="5.66cm" Height="0.5cm" Left="0cm" Top="0cm" Value="Website" Name="textBox8" StyleName="Normal.TableHeader">
+                  <Style BackgroundColor="196, 189, 150">
+                    <Font Name="TH Sarabun New" Size="14pt" Bold="True" />
+                  </Style>
+                </TextBox>
+              </ReportItem>
+            </TableGroup>
+          </ColumnGroups>
+        </Table>
+      </Items>
+    </DetailSection>
+    <PageFooterSection Height="2cm" Name="pageFooterSection1">
+      <Items>
+        <TextBox Width="4.1cm" Height="0.6cm" Left="12.6cm" Top="1cm" Value="= Parameters.ProvinceName.Value" Name="textBox12">
+          <Style>
+            <Font Size="14pt" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageFooterSection>
+  </Items>
+  <PageSettings PaperKind="A4" Landscape="False">
+    <Margins>
+      <MarginsU Left="2cm" Right="2cm" Top="2cm" Bottom="2cm" />
+    </Margins>
+  </PageSettings>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+    <StyleRule>
+      <Style Color="20, 34, 77">
+        <Font Name="Calibri" Size="9pt" />
+        <BorderStyle Default="Solid" />
+        <BorderColor Default="Black" />
+        <BorderWidth Default="1px" />
+      </Style>
+      <Selectors>
+        <StyleSelector Type="Table" StyleName="Office.TableNormal" />
+      </Selectors>
+    </StyleRule>
+    <StyleRule>
+      <Style>
+        <Font Name="Calibri" Size="9pt" />
+        <BorderStyle Default="Solid" />
+        <BorderColor Default="Black" />
+        <BorderWidth Default="1px" />
+      </Style>
+      <Selectors>
+        <DescendantSelector>
+          <Selectors>
+            <TypeSelector Type="Table" />
+            <StyleSelector Type="ReportItem" StyleName="Office.TableBody" />
+          </Selectors>
+        </DescendantSelector>
+      </Selectors>
+    </StyleRule>
+    <StyleRule>
+      <Style BackgroundColor="121, 167, 227" Color="20, 34, 77" VerticalAlign="Middle">
+        <Font Name="Calibri" Size="10pt" />
+        <BorderStyle Default="Solid" />
+        <BorderColor Default="Black" />
+        <BorderWidth Default="1px" />
+      </Style>
+      <Selectors>
+        <DescendantSelector>
+          <Selectors>
+            <TypeSelector Type="Table" />
+            <StyleSelector Type="ReportItem" StyleName="Office.TableHeader" />
+          </Selectors>
+        </DescendantSelector>
+      </Selectors>
+    </StyleRule>
+    <StyleRule>
+      <Style Color="Black">
+        <Font Name="Tahoma" Size="9pt" />
+        <BorderStyle Default="Solid" />
+        <BorderColor Default="Black" />
+        <BorderWidth Default="1px" />
+      </Style>
+      <Selectors>
+        <StyleSelector Type="Table" StyleName="Normal.TableNormal" />
+      </Selectors>
+    </StyleRule>
+    <StyleRule>
+      <Style>
+        <Font Name="Tahoma" Size="9pt" />
+        <BorderStyle Default="Solid" />
+        <BorderColor Default="Black" />
+        <BorderWidth Default="1px" />
+      </Style>
+      <Selectors>
+        <DescendantSelector>
+          <Selectors>
+            <TypeSelector Type="Table" />
+            <StyleSelector Type="ReportItem" StyleName="Normal.TableBody" />
+          </Selectors>
+        </DescendantSelector>
+      </Selectors>
+    </StyleRule>
+    <StyleRule>
+      <Style VerticalAlign="Middle">
+        <Font Name="Tahoma" Size="10pt" />
+        <BorderStyle Default="Solid" />
+        <BorderColor Default="Black" />
+        <BorderWidth Default="1px" />
+      </Style>
+      <Selectors>
+        <DescendantSelector>
+          <Selectors>
+            <TypeSelector Type="Table" />
+            <StyleSelector Type="ReportItem" StyleName="Normal.TableHeader" />
+          </Selectors>
+        </DescendantSelector>
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <ReportParameters>
+    <ReportParameter Name="DataSet" Text="DataSet">
+      <Value>
+        <String>[{"ID":10,"NAME":"AtlasX"},{"ID":20,"NAME":"Framework"}]</String>
+      </Value>
+    </ReportParameter>
+    <ReportParameter Name="ProvinceName" Text="จังหวัด" Visible="True">
+      <Value>
+        <String>กรุงเทพมหานคร</String>
+      </Value>
+    </ReportParameter>
+  </ReportParameters>
+</Report>

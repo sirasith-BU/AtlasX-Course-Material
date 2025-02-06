@@ -1,0 +1,78 @@
+@model AtlasX.Web.Service.OAuth.Models.UserInfo
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>ลงชื่อเข้าใช้ · AtlasX</title>
+
+    <link rel="icon" type="image/svg" href="~/logo.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://getbootstrap.com/docs/4.5/dist/css/bootstrap.min.css">
+
+    <style>
+      html,
+      body {
+        height: 100%;
+        font-family: 'Kanit', sans-serif;
+      }
+
+      body {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        padding-top: 40px;
+        padding-bottom: 40px;
+      }
+
+      .list-container {
+        width: 100%;
+        max-width: 420px;
+        padding: 3rem 2rem;
+        margin: auto;
+        border-radius: .3rem;
+        border: 1px solid #dee2e6;
+      }
+
+      .list-group-item-action {
+        cursor: pointer;
+      }
+
+      @@media (max-width: 575.98px) {
+        body {
+          display: block;
+        }
+
+        .list-container {
+          border-radius: 0;
+          border: none;
+          padding: 0;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="list-container">
+      <div class="text-center mb-4">
+        <img class="mb-4" src="~/logo.svg" alt="Banner" style="height: 72px;">
+        <h3 class="mb-3 font-weight-normal">ยินดีต้อนรับ</h3>
+        @if (!string.IsNullOrEmpty(Model.Name)) {
+          <h5>คุณ @Model.Name</h5>
+        } else {
+          <h5>คุณ @Model.Username</h5>
+        }
+      </div>
+
+      <div class="text-center">
+          <a class="btn btn-primary" href="@Url.Action("Logout")">
+            ออกจากระบบ
+          </a>
+      </div>
+    </div>
+  </body>
+
+</html>

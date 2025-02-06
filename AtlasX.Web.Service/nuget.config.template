@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <packageSources>
+    <add key="nuget.org" value="https://api.nuget.org/v3/index.json" protocolVersion="3" />
+    <add key="nuget.telerik.com" value="https://nuget.telerik.com/nuget" />
+    <add key="atlasx.cdg.co.th" value="https://atlasx.cdg.co.th/nexus/repository/nuget-hosted/" />
+  </packageSources>
+  <packageSourceCredentials>
+    <nuget.telerik.com>
+      <add key="Username" value="%NUGET_TELERIK_USER%" />
+      <add key="ClearTextPassword" value="%NUGET_TELERIK_PASSWORD%" />
+    </nuget.telerik.com>
+    <atlasx.cdg.co.th>
+      <add key="Username" value="%NUGET_ATLASX_USER%" />
+      <add key="ClearTextPassword" value="%NUGET_ATLASX_PASSWORD%" />
+    </atlasx.cdg.co.th>
+  </packageSourceCredentials>
+</configuration>

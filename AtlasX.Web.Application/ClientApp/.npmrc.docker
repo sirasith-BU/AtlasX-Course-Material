@@ -1,0 +1,2 @@
+@atlasx:registry = https://atlasx.cdg.co.th/nexus/repository/npm-private/
+//atlasx.cdg.co.th/nexus/repository/npm-private/:_authToken=${NPM_TOKEN}

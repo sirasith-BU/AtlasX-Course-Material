@@ -1,0 +1,70 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<EnableUnsafeBinaryFormatterSerialization>true</EnableUnsafeBinaryFormatterSerialization>
+		<Version>5.0.0</Version>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AtlasX.Engine" Version="1.4.0" />
+		<PackageReference Include="AtlasX.TelerikReporting" Version="1.0.1" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" />
+		<PackageReference Include="Novell.Directory.Ldap.NETStandard" Version="3.6.0" />
+		<PackageReference Include="NSwag.AspNetCore" Version="14.0.0-preview009" />
+		<PackageReference Include="Serilog.AspNetCore" Version="8.0.0" />
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.0.3" />
+		<PackageReference Include="Standard.Licensing" Version="1.1.9.0" />
+		<PackageReference Include="Telerik.Reporting.OpenXmlRendering.Trial" Version="14.1.20.618" />
+		<PackageReference Include="Telerik.Reporting.Services.AspNetCore.Trial" Version="14.1.20.618" />
+		<PackageReference Include="Telerik.Reporting.WebServiceDataSource.Trial" Version="14.1.20.618" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Reference Include="AtlasX.License">
+			<HintPath>License\AtlasX.License.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+
+	<!--Copy fonts and templates report, then remove Telerik libraries-->
+	<ItemGroup>
+		<Content Include="Report\**">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Remove="Report\Libraries\**" />
+	</ItemGroup>
+
+	<!--AtlasX License-->
+	<ItemGroup>
+		<Content Include="License\License.lic">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
+	<!--Default git ignore files for Visual Studio 2019 and Visual Studio Code-->
+	<ItemGroup>
+		<None Remove=".gitignore" />
+	</ItemGroup>
+
+	<!--Copy the DLL of Telerik Reporting license-->
+	<ItemGroup>
+		<TelerikDLL Include="Report\Libraries\**" />
+	</ItemGroup>
+	<Target Name="CopyTelerikDLLAfterBuild" AfterTargets="AfterBuild">
+		<Copy SourceFiles="@(TelerikDLL)" DestinationFiles="@(TelerikDLL->'$(OutDir)\%(Filename)%(Extension)')" />
+	</Target>
+	<Target Name="CopyTelerikDLLAfterPublish" AfterTargets="AfterPublish">
+		<Copy SourceFiles="@(TelerikDLL)" DestinationFiles="@(TelerikDLL->'$(PublishDir)\%(Filename)%(Extension)')" />
+	</Target>
+
+	<ItemGroup>
+		<None Include="OAuth/Assets/Verify/register.html">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  	</None>
+		<None Include="OAuth/Assets/Verify/forget-password.html">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  	</None>
+	</ItemGroup>
+
+</Project>

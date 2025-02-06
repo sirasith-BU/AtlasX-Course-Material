@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  webservice:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - NUGET_TELERIK_USER=${NUGET_TELERIK_USER}
+        - NUGET_TELERIK_PASSWORD=${NUGET_TELERIK_PASSWORD}
+        - NUGET_ATLASX_USER=${NUGET_ATLASX_USER}
+        - NUGET_ATLASX_PASSWORD=${NUGET_ATLASX_PASSWORD}
+    container_name: webservice
+    ports:
+      - "5000:8080"
+    restart: unless-stopped

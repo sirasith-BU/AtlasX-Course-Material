@@ -1,0 +1,50 @@
+﻿{
+  "WORKS": [
+    {
+      "WORK_ID": 1,
+      "TRANSACTIONS": [
+        {
+          "TRANSACTION_ID": 1,
+          "TRANSACTION_TYPE": "SP",
+          "PARAMETERS": {
+            "APP_DATA_PROCEDURE": "APP_TOKEN_I",
+            "USER_ID": "4911",
+            "TOKEN": "ABC123"
+          }
+        },
+        {
+          "TRANSACTION_ID": 2,
+          "TRANSACTION_TYPE": "FILE",
+          "PARAMETERS": {
+            "SOURCE_PATH": "Sync/Files",
+            "SOURCE_FILE": "test.jpg",
+            "DESTINATION_PATH": "Work/1213131/1",
+            "DESTINATION_FILE": "1_11052020.jpg"
+          }
+        },
+        {
+          "TRANSACTION_ID": 2,
+          "TRANSACTION_TYPE": "GIS",
+          "PARAMETERS": {
+            "URL": "http://157.179.28.137/arcgis/rest/services/AtlasX/City/FeatureServer/applyEdits",
+            "JSON": "{}"
+          }
+        }
+      ]
+    },
+    {
+      "WORK_ID": 2,
+      "TRANSACTIONS": [
+        {
+          "TRANSACTION_ID": 1,
+          "TRANSACTION_TYPE": "SP",
+          "PARAMETERS": {
+            "APP_DATA_PROCEDURE": "APP_TOKEN_I",
+            "USER_ID": "4912",
+            "TOKEN": "ABC123"
+          }
+        }
+      ]
+    }
+  ]
+}

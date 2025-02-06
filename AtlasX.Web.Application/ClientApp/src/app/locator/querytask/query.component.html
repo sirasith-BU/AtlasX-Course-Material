@@ -1,0 +1,25 @@
+<div class="map-container">
+  <div #mapPanel class="map-panel"></div>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Subregion</th>
+          <th>State Name (Full)</th>
+          <th>State Name (Abbr.)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let state of states; let i = index"
+          [ngClass]="{ highlight: selectedStateIndex === i }"
+          (click)="onRowClick(state, i)"
+        >
+          <td>{{ state.sub_region }}</td>
+          <td>{{ state.state_name }}</td>
+          <td>{{ state.state_abbr }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

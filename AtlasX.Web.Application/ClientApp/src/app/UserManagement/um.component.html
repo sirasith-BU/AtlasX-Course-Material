@@ -1,0 +1,94 @@
+<p-toast />
+<p-confirmDialog />
+<div class="container">
+  <!-- Sidebar -->
+
+  <div class="sidebar">
+    <div class="search-panel">
+      <input type="text" placeholder="ค้นหา" class="search-bar" [(ngModel)]="searchText" (input)="searchUsers()" />
+      <p-button (onClick)="addUser()"><div class="pi pi-user-plus"></div></p-button>
+    </div>
+    <ul class="user-list">
+      <li *ngFor="let user of filteredUsers" class="user-item" (click)="selectUser(user)">
+        <i class="pi pi-user" [ngClass]="{ 'male-icon': user.GENDER === 'M', 'female-icon': user.GENDER === 'F' }"></i>
+        <span class="user-name">{{ user.NAME }} {{ user.SURNAME }}</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Content Area -->
+  <div class="content">
+    <h1 class="title">แก้ไขผู้ใช้งาน</h1>
+    <!-- <p-rating [(ngModel)]="rating" [stars]="3" [readonly]="true" name="Rating" /> -->
+    <form class="user-form" [formGroup]="userForm">
+      <div
+        class="form-group"
+        [ngClass]="{ error: userForm.controls['NAME'].invalid && userForm.controls['NAME'].touched }"
+      >
+        <label>ชื่อ:</label>
+        <!-- <input type="text" [(ngModel)]="selectedUser.NAME" name="NAME" (input)="rateUsers()" /> -->
+        <input type="text" formControlName="NAME" name="NAME" (input)="rateUsers()" />
+        <div *ngIf="userForm.get('NAME')?.invalid && userForm.get('NAME')?.touched">
+          <small *ngIf="userForm.get('NAME')?.hasError('required')">Name is required.</small>
+        </div>
+        <div class="Ratings">
+          <i
+            *ngFor="let star of starsArray; let i = index"
+            class="pi"
+            [ngClass]="{
+              'pi-star-fill': i < rating,
+              'pi-star': i >= rating
+            }"
+          ></i>
+        </div>
+      </div>
+      <div
+        class="form-group"
+        [ngClass]="{ error: userForm.controls['SURNAME'].invalid && userForm.controls['SURNAME'].touched }"
+      >
+        <label>สกุล:</label>
+        <!-- <input type="text" [(ngModel)]="selectedUser.SURNAME" name="SURNAME" /> -->
+        <input type="text" formControlName="SURNAME" name="SURNAME" />
+        <div *ngIf="userForm.get('SURNAME')?.invalid && userForm.get('SURNAME')?.touched">
+          <small *ngIf="userForm.get('SURNAME')?.hasError('required')">Surname is required.</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>เพศ:</label>
+        <div>
+          <!-- <input type="radio" name="gender" value="M" [(ngModel)]="selectedUser.GENDER" /> ชาย -->
+          <input type="radio" name="GENDER" value="M" formControlName="GENDER" /> ชาย
+          <!-- <input type="radio" name="gender" value="F" [(ngModel)]="selectedUser.GENDER" /> หญิง -->
+          <input type="radio" name="GENDER" value="F" formControlName="GENDER" /> หญิง
+        </div>
+      </div>
+      <div *ngIf="userForm.get('GENDER')?.invalid && userForm.get('GENDER')?.touched">
+        <small *ngIf="userForm.get('GENDER')?.hasError('required')">Gender is required.</small>
+      </div>
+      <div
+        class="form-group"
+        [ngClass]="{ error: userForm.controls['MOBILE'].invalid && userForm.controls['MOBILE'].touched }"
+      >
+        <label>หมายเลขโทรศัพท์:</label>
+        <!-- <input type="text" [(ngModel)]="selectedUser.MOBILE" name="MOBILE" /> -->
+        <input type="tel" formControlName="MOBILE" name="MOBILE" />
+        <div *ngIf="userForm.get('MOBILE')?.invalid && userForm.get('MOBILE')?.touched">
+          <small *ngIf="userForm.get('MOBILE')?.hasError('required')">Mobile is required.</small>
+          <small *ngIf="userForm.get('MOBILE')?.hasError('minlength')">Mobile must be at least 10 digits.</small>
+          <small *ngIf="userForm.get('MOBILE')?.hasError('maxlength')">Mobile must not exceed 10 digits.</small>
+        </div>
+      </div>
+    </form>
+
+    <!-- Map -->
+    <div class="map-container">
+      <div #mapPanel class="map-panel" id="map"></div>
+    </div>
+    <div class="form-buttons">
+      <p-button label="บันทึก" severity="success" icon="pi pi-check" iconPos="left" (onClick)="updateUser()" />
+      <p-button label="ล้างค่า" severity="contrast" icon="pi pi-times" iconPos="left" (onClick)="resetForm()" />
+      <p-button label="ลบผู้ใช้งาน" severity="danger" icon="pi pi-trash" iconPos="left" (onClick)="deleteUser()" />
+      <!-- <p-button label="รีเฟรช" icon="pi pi-refresh" iconPos="left" (onClick)="refreshUser()" /> -->
+    </div>
+  </div>
+</div>

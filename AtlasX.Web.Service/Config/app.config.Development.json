@@ -1,0 +1,131 @@
+{
+  "success": true,
+  "total": 1,
+  "message": "Development",
+  "data": [
+    {
+      "SYSTEM_ID": "GIS",
+      "SYSTEM_NAME": "ระบบภูมิศาสตร์สารสนเทศ",
+      "SYSTEM_DETAIL": null,
+      "ORDER_NO": 1,
+      "SYSTEM_URL": "gis"
+    }
+  ],
+  "data2": [
+    {
+      "FUNCTION_ID": "1",
+      "FUNCTION_NAME": "ค้นหา",
+      "FUNCTION_DETAIL": null,
+      "FUNCTION_PARENT": null,
+      "SYSTEM_ID": "GIS",
+      "ORDER_NO": 1
+    },
+    {
+      "FUNCTION_ID": "2",
+      "FUNCTION_NAME": "ค้นหาเส้นทาง",
+      "FUNCTION_DETAIL": null,
+      "FUNCTION_PARENT": null,
+      "SYSTEM_ID": "GIS",
+      "ORDER_NO": 4
+    },
+    {
+      "FUNCTION_ID": "11",
+      "FUNCTION_NAME": "แสดงตำแหน่งปัจจุบัน",
+      "FUNCTION_DETAIL": null,
+      "FUNCTION_PARENT": null,
+      "SYSTEM_ID": "GIS",
+      "ORDER_NO": 5
+    },
+    {
+      "FUNCTION_ID": "3",
+      "FUNCTION_NAME": "ตารางแสดงชั้นข้อมูล",
+      "FUNCTION_DETAIL": null,
+      "FUNCTION_PARENT": null,
+      "SYSTEM_ID": "GIS",
+      "ORDER_NO": 7
+    }
+  ],
+  "data3": [
+    {
+      "SERVICE_ID": "World_Topo_Map",
+      "SERVICE_NAME": "แผนที่แสดงภูมิประเทศ",
+      "SERVICE_URL": "https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer",
+      "SERVICE_TYPE": "TILED",
+      "SERVICE_VISIBLE": 1,
+      "OPTIONS": null,
+      "SYSTEM_ID": "GIS",
+      "ADD_MAP": 1,
+      "ADD_TOC": 0,
+      "IDENTIFY": 0,
+      "ORDER_NO": 3
+    },
+    {
+      "SERVICE_ID": "Census",
+      "SERVICE_NAME": "สำรวจสำมะโนประชากร",
+      "SERVICE_URL": "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer",
+      "SERVICE_TYPE": "DYNAMIC",
+      "SERVICE_VISIBLE": 1,
+      "OPTIONS": "{opacity:0.6,refreshInterval:0}",
+      "SYSTEM_ID": "GIS",
+      "ADD_MAP": 1,
+      "ADD_TOC": 1,
+      "IDENTIFY": 1,
+      "ORDER_NO": 5
+    }
+  ],
+  "data4": [
+    {
+      "LAYER_ID": "1",
+      "LAYER_NAME": "Census Block Points",
+      "SERVICE_ID": "Census",
+      "IDENTIFY": 1,
+      "INDEX_NO": 0,
+      "ORDER_NO": 1,
+      "OPACITY": 1
+    },
+    {
+      "LAYER_ID": "2",
+      "LAYER_NAME": "Census Block Group",
+      "SERVICE_ID": "Census",
+      "IDENTIFY": 1,
+      "INDEX_NO": 1,
+      "ORDER_NO": 2,
+      "OPACITY": 1
+    },
+    {
+      "LAYER_ID": "3",
+      "LAYER_NAME": "Detailed Counties",
+      "SERVICE_ID": "Census",
+      "IDENTIFY": 1,
+      "INDEX_NO": 2,
+      "ORDER_NO": 3,
+      "OPACITY": 1
+    },
+    {
+      "LAYER_ID": "4",
+      "LAYER_NAME": "States",
+      "SERVICE_ID": "Census",
+      "IDENTIFY": 1,
+      "INDEX_NO": 3,
+      "ORDER_NO": 4,
+      "OPACITY": 1
+    }
+  ],
+  "data5": [
+    {
+      "CONFIG_NAME": "USE_PROXY",
+      "CONFIG_VALUE": "1",
+      "CONFIG_DESCR": null
+    },
+    {
+      "CONFIG_NAME": "SPLIT_ROW",
+      "CONFIG_VALUE": "^",
+      "CONFIG_DESCR": null
+    },
+    {
+      "CONFIG_NAME": "SPLIT_COL",
+      "CONFIG_VALUE": "|",
+      "CONFIG_DESCR": null
+    }
+  ]
+}

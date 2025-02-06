@@ -1,0 +1,197 @@
+﻿@model AtlasX.Web.Service.OAuth.ViewModels.LoginViewModel
+
+@{
+    var queryParams = new Dictionary<string, string>();
+    Context.Request.Query.ToList().ForEach(query => queryParams.Add(query.Key, query.Value));
+}
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>ลงชื่อเข้าใช้ · AtlasX</title>
+
+    <link rel="icon" type="image/svg" href="~/logo.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://getbootstrap.com/docs/4.5/dist/css/bootstrap.min.css">
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            font-family: 'Kanit', sans-serif;
+        }
+
+        body {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-align: center;
+            align-items: center;
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+
+        .form-signin {
+            width: 100%;
+            max-width: 420px;
+            padding: 3rem 2rem;
+            margin: auto;
+            border-radius: .3rem;
+            border: 1px solid #dee2e6;
+        }
+
+        .form-label-group {
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
+            .form-label-group input,
+            .form-label-group label {
+                height: 3.125rem;
+                padding: .75rem;
+            }
+
+            .form-label-group label {
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: block;
+                width: 100%;
+                margin-bottom: 0; /* Override default `<label>` margin */
+                line-height: 1.5;
+                color: #495057;
+                pointer-events: none;
+                cursor: text; /* Match the input under the label */
+                border: 1px solid transparent;
+                border-radius: .25rem;
+                transition: all .1s ease-in-out;
+            }
+
+            .form-label-group input::-webkit-input-placeholder {
+                color: transparent;
+            }
+
+            .form-label-group input::-moz-placeholder {
+                color: transparent;
+            }
+
+            .form-label-group input:-ms-input-placeholder {
+                color: transparent;
+            }
+
+            .form-label-group input::-ms-input-placeholder {
+                color: transparent;
+            }
+
+            .form-label-group input::placeholder {
+                color: transparent;
+            }
+
+            .form-label-group input:not(:-moz-placeholder-shown) {
+                padding-top: 1.25rem;
+                padding-bottom: .25rem;
+            }
+
+            .form-label-group input:not(:-ms-input-placeholder) {
+                padding-top: 1.25rem;
+                padding-bottom: .25rem;
+            }
+
+            .form-label-group input:not(:placeholder-shown) {
+                padding-top: 1.25rem;
+                padding-bottom: .25rem;
+            }
+
+            .form-label-group input:not(:-moz-placeholder-shown) ~ label {
+                padding-top: .25rem;
+                padding-bottom: .25rem;
+                font-size: 12px;
+                color: #777;
+            }
+
+            .form-label-group input:not(:-ms-input-placeholder) ~ label {
+                padding-top: .25rem;
+                padding-bottom: .25rem;
+                font-size: 12px;
+                color: #777;
+            }
+
+            .form-label-group input:not(:placeholder-shown) ~ label {
+                padding-top: .25rem;
+                padding-bottom: .25rem;
+                font-size: 12px;
+                color: #777;
+            }
+
+        /* Fallback for Edge
+        -------------------------------------------------- */
+        @@supports (-ms-ime-align: auto) {
+            .form-label-group {
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-direction: column-reverse;
+                flex-direction: column-reverse;
+            }
+
+                .form-label-group label {
+                    position: static;
+                }
+
+                .form-label-group input::-ms-input-placeholder {
+                    color: #777;
+                }
+        }
+
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @@media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        @@media (max-width: 575.98px) {
+            .form-signin {
+                border-radius: 0;
+                border: none;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <form class="form-signin" method="post" asp-controller="AppLogin" asp-action="Index" asp-all-route-data="queryParams">
+        <div class="text-center mb-4">
+            <img class="mb-4" src="~/logo.svg" alt="AtlasX Logo" style="height: 72px;">
+            <h3 class="mb-3 font-weight-normal">ลงชื่อเข้าใช้งาน</h3>
+            <p class="text-black-50">ใช้บัญชีผู้ใช้งานจากระบบจัดการผู้ใช้งาน(UM) หากไม่สามารถลงชื่อเข้าใช้งานได้ กรุณาติดต่อทีม <code>AtlasX</code></p>
+        </div>
+
+        <div class="form-label-group">
+            <input asp-for="Username" type="text" class="form-control" placeholder="ชื่อผู้ใช้" required autofocus>
+            <label asp-for="Username">ชื่อผู้ใช้</label>
+            <span asp-validation-for="Username" class="text-danger"></span>
+        </div>
+
+        <div class="form-label-group">
+            <input asp-for="Password" type="password" class="form-control" placeholder="รหัสผ่าน" required>
+            <label asp-for="Password">รหัสผ่าน</label>
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">เข้าสู่ระบบ</button>
+    </form>
+
+</body>
+
+</html>
